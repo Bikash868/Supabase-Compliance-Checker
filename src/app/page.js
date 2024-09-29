@@ -1,10 +1,14 @@
 'use client'
 
 import { useState, useEffect } from 'react';
-import { Auth } from '@/components/Auth';
-import { ComplianceChecker } from '@/components/ComplianceChecker';
-import { EvidenceViewer } from '@/components/EvidenceViewer';
 import { supabase } from '@/utils/supabaseClient';
+
+import { Auth } from '@/components/Auth';
+import { RLSChecker } from '@/components/RLSChecker';
+import { MFAChecker } from '@/components/MFAChecker';
+import { PITRChecker } from '@/components/PITRChecker';
+import { EvidenceViewer } from '@/components/EvidenceViewer';
+
 
 export default function Home() {
   const [session, setSession] = useState(null);
@@ -25,10 +29,12 @@ export default function Home() {
       {!session ? (
         <Auth />
       ) : (
-        <>
-          <ComplianceChecker />
-          <EvidenceViewer />
-        </>
+        <div className="flex flex-col gap-2 justify-start">
+          <MFAChecker />
+          <RLSChecker />
+          <PITRChecker/>
+          <EvidenceViewer/>
+        </div>
       )}
     </div>
   );

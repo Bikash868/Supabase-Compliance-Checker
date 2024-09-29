@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { supabase } from '@/utils/supabaseClient';
 
 import { Auth } from '@/components/Auth';
+import { Chatbot } from '@/components/Chatbot';
 import { RLSChecker } from '@/components/RLSChecker';
 import { MFAChecker } from '@/components/MFAChecker';
 import { PITRChecker } from '@/components/PITRChecker';
@@ -34,6 +35,7 @@ export default function Home() {
           <RLSChecker />
           <PITRChecker/>
           <EvidenceViewer/>
+          <Chatbot />
         </div>
       )}
     </div>
